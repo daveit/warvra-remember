@@ -1,0 +1,63 @@
+<div class="row">
+  <div class="col-xs-12 col-sm-6 col-md-12">
+
+    <p id="notice">
+      <%=notice %>
+    </p>
+
+    <h1>Listing Individuals</h1>
+
+    <div class="media">
+      <div class="media-body">
+        <table class="table table-hover table-condensed">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Address</th>
+              <th>Suburb</th>
+              <th>Phone</th>
+              <th>Fin. to</th>
+              <th>Status</th>
+              <th colspan="2"></th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <% @individuals.each do |individual| %>
+              <tr>
+                <td>
+                  <%= link_to (individual.title.name + " " + individual.first + " " + individual.last), individual %>
+                </td>
+                <td>
+                  <%=individual.address1 %>
+                </td>
+                <td>
+                  <%=individual.suburb %>
+                </td>
+                <td>
+                  <%=individual.phone %>
+                </td>
+                <td>
+                  <%=individual.financial_to %>
+                </td>
+                <td>
+                  <%=individual.status.name %>
+                </td>
+                  <td><%=link_to 'Edit', edit_individual_path(individual), :class=> "btn btn-xs btn-success" %>
+                  </td>
+                <td>
+                  <%=link_to 'X', individual, method: :delete, data: {confirm: 'Are you sure?'}, :class=> "btn btn-xs btn-danger" %>
+                  </td>
+              </tr>
+              <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <br>
+
+    <%=link_to 'New Individual', new_individual_path, :class=> "btn btn-sm btn-primary" %>
+
+  </div>
+</div>

@@ -1,0 +1,45 @@
+<div class="row">
+  <div class="col-xs-12 col-sm-6 col-md-12">
+
+    <p id="notice"><%= notice %></p>
+
+    <h1>Villages for Individuals</h1>
+
+    <div class="media">
+      <div class="media-body">
+        <table class="table table-hover">
+          <thead>
+          <tr>
+            <th>Name</th>
+            <th>Address1</th>
+            <th>Suburb</th>
+            <th>Postcode</th>
+            <th>Phone1</th>
+            <th colspan="3"></th>
+          </tr>
+          </thead>
+
+          <tbody>
+          <% @ivillages.each do |ivillage| %>
+              <tr>
+                <td><%= ivillage.name %></td>
+                <td><%= ivillage.address1 %></td>
+                <td><%= ivillage.suburb %></td>
+                <td><%= ivillage.postcode %></td>
+                <td><%= ivillage.phone1 %></td>
+                <td><%= link_to 'Show', ivillage, :class => "btn btn-small btn-info" %></td>
+                <td><%= link_to 'Edit', edit_ivillage_path(ivillage), :class => "btn btn-small btn-success" %></td>
+                <td><%= link_to 'Destroy', ivillage, method: :delete, data: {confirm: 'Are you sure?'}, :class => "btn btn-small btn-danger" %></td>
+              </tr>
+          <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <br>
+
+    <%= link_to 'New Individuals Village', new_ivillage_path %>
+
+  </div>
+</div>

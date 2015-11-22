@@ -1,0 +1,61 @@
+<div class="row">
+  <div class="col-xs-10 col-sm-4 col-md-12">
+
+    <p id="notice"><%= notice %></p>
+
+    <h2>Listing Villages</h2>
+
+    <p><%= link_to "All", villages_path, :class => "btn btn-small btn-success" %> <%= link_to "Financial", financial_villages_path, :class => "btn btn-small btn-success" %> <%= link_to "Not-Financial", notfinancial_villages_path, :class => "btn btn-small btn-success" %> <%= link_to "Prospects", prospect_villages_path, :class => "btn btn-small btn-success" %> <%= link_to "Cancelled", cancelled_villages_path, :class => "btn btn-small btn-success" %> <%= link_to 'New Village', new_village_path, :class => "btn btn-small btn-primary" %></p>
+
+    <%= form_tag villages_path, :method => 'get' do %>
+        <p>
+          <%= text_field_tag :search, params[:search] %>
+          <%= submit_tag "Search", :name => nil %>
+        </p>
+    <% end %>
+
+    <div class="media">
+      <div class="media-body">
+        <table class="table table-hover">
+          <thead>
+          <tr>
+            <th>Name</th>
+            <th>Address</th>
+            <th>Suburb</th>
+            <th>Phone #</th>
+            <!--<th>E-Mail</th>-->
+            <th>Fin-To</th>
+            <th># Units</th>
+            <!--<th>Status</th>-->
+
+            <th colspan="3"></th>
+          </tr>
+          </thead>
+
+          <tbody>
+          <% @villages.each do |village| %>
+              <tr>
+                <td><%= village.name %></td>
+                <td><%= village.address %></td>
+                <td><%= village.suburb %></td>
+                <td><%= village.phone %></td>
+                <!--<td><%= village.email %></td>-->
+                <td><%= village.financial_to %></td>
+                <td><%= village.residents %></td>
+                <!--<td><%= village.status.name %></td>-->
+                <td><%= link_to 'Show', village, :class => "btn btn-small btn-info" %></td>
+                <td><%= link_to 'Edit', edit_village_path(village), :class => "btn btn-small btn-success" %></td>
+                <td><%= link_to 'Delete', village, method: :delete, data: {confirm: 'Are you sure?'}, :class => "btn btn-small btn-danger" %></td>
+              </tr>
+          <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <br>
+
+    <%= link_to 'New Village', new_village_path, :class => "btn btn-small btn-primary" %>
+
+  </div>
+</div>

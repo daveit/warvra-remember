@@ -1,0 +1,17 @@
+<%= simple_form_for(@ireceipt) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :rdate %>
+    <%= f.input :amount %>
+    <%= f.input :reference %>
+    <%= f.input :details %>
+    <%= f.input :financial_to %>
+    <%= f.association :individual %>
+    <%= f.association :pay_type %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

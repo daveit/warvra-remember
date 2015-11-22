@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Village Categories</h1>
+
+<div class="media">
+  <div class="media-body">
+    <table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @village_categories.each do |village_category| %>
+      <tr>
+        <td><%= village_category.name %></td>
+        <td><%= link_to 'Show', village_category %></td>
+        <td><%= link_to 'Edit', edit_village_category_path(village_category) %></td>
+        <td><%= link_to 'Destroy', village_category, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>
+</div>
+
+<br>
+
+<%= link_to 'New Village category', new_village_category_path %>

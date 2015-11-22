@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Ireceipts</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Rdate</th>
+      <th>Amount</th>
+      <th>Reference</th>
+      <th>Details</th>
+      <th>Financial to</th>
+      <th>Individual</th>
+      <th>Pay type</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @ireceipts.each do |ireceipt| %>
+      <tr>
+        <td><%= ireceipt.rdate %></td>
+        <td><%= ireceipt.amount %></td>
+        <td><%= ireceipt.reference %></td>
+        <td><%= ireceipt.details %></td>
+        <td><%= ireceipt.financial_to %></td>
+        <td><%= ireceipt.individual %></td>
+        <td><%= ireceipt.pay_type %></td>
+        <td><%= link_to 'Show', ireceipt %></td>
+        <td><%= link_to 'Edit', edit_ireceipt_path(ireceipt) %></td>
+        <td><%= link_to 'Destroy', ireceipt, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Ireceipt', new_ireceipt_path %>

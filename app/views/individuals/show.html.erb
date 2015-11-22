@@ -1,0 +1,74 @@
+<div class="row">
+  <div class="col-xs-12 col-sm-6 col-md-8">
+
+    <p id="notice"><%= notice %></p>
+
+    <p>
+      <strong>Name:</strong>
+      <%= @individual.title.name %> <%= @individual.first %> <%= @individual.last %>
+    </p>
+
+
+    <p>
+      <%= @individual.address1 %>
+      <br>
+      <%= @individual.address2 %>
+      <br>
+      <%= @individual.suburb %>,
+      <%= @individual.postcode %>
+    </p>
+
+    <p>
+      <strong>Phone:</strong>
+      <%= @individual.phone %>
+    </p>
+
+    <p>
+      <strong>Mobile:</strong>
+      <%= @individual.mobile %>
+    </p>
+
+    <p>
+      <strong>Email:</strong>
+      <%= @individual.email %>
+    </p>
+
+    <p>
+      <strong>Financial to:</strong>
+      <%= @individual.financial_to %>
+    </p>
+
+    <p>
+      <strong>Status:</strong>
+      <%= @individual.status.name %>
+    </p>
+
+    <%= link_to 'Edit', edit_individual_path(@individual), :class => "btn btn-small btn-primary" %>
+    <%= link_to 'Back', individuals_path, :class => "btn btn-small btn-primary" %>
+
+    <hr class="style-one">
+    <h3>Receipt History:</h3>
+
+  </div>
+  <div class="col-xs-6 col-md-4">
+    <h3>Enter a new Receipt:</h3>
+    <%= simple_form_for([@individual, @individual.ireceipts.build]) do |f| %>
+        <%= f.error_notification %>
+
+        <div class="form-inputs">
+          <%= f.input :rdate, :as => :date_picker, label: 'Date Entered', input_html: {:style => 'width: 300px', class: 'glyphicon glyphicon-calendar'} %>
+          <%= f.input :amount %>
+          <%= f.association :pay_type %>
+          <%= f.input :reference %>
+          <%= f.input :details %>
+          <%= f.input :financial_to, :as => :date_picker, label: 'Date Entered', input_html: {:style => 'width: 300px', class: 'glyphicon glyphicon-calendar'} %>
+        </div>
+
+        <div class="form-actions">
+          <%= submit_tag "Save Receipt", :class => "btn btn-small btn-success" %>
+        </div>
+    <% end %>
+    <br>
+  </div>
+
+</div>

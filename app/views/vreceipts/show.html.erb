@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Rdate:</strong>
+  <%= @vreceipt.rdate %>
+</p>
+
+<p>
+  <strong>Reference:</strong>
+  <%= @vreceipt.reference %>
+</p>
+
+<p>
+  <strong>Finto:</strong>
+  <%= @vreceipt.finto %>
+</p>
+
+<p>
+  <strong>Details:</strong>
+  <%= @vreceipt.details %>
+</p>
+
+<p>
+  <strong>Village:</strong>
+  <%= @vreceipt.village %>
+</p>
+
+<p>
+  <strong>Pay type:</strong>
+  <%= @vreceipt.pay_type %>
+</p>
+
+<%= link_to 'Edit', edit_vreceipt_path(@vreceipt) %> |
+<%= link_to 'Back', vreceipts_path %>
