@@ -8,20 +8,25 @@ Rails.application.routes.draw do
   resources :acc_accounts
   resources :acc_bank_accounts
   resources :regions
-  resources :ivillages do
-    collection { post :import }
-  end
+  resources :ivillages
   resources :ireceipts
+
   resources :individuals do
+    collection do
+      get :financial
+      get :notfinancial
+      get :cancelled
+    end
     resources :ireceipts
-    collection { post :import }
   end
+
   resources :icats
   resources :vreceipts
   resources :pay_types
   resources :notices
   resources :titles
   resources :positions
+
   resources :villages do
     collection do
       get :financial
@@ -31,13 +36,11 @@ Rails.application.routes.draw do
     end
     resources :contacts
     resources :vreceipts
-    collection { post :import }
   end
+
   resources :village_categories
   resources :statuses
-  resources :suburbs do
-  	collection { post :import }
-  end
+  resources :suburbs
 
   root to: 'visitors#index'
   devise_for :users

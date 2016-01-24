@@ -7,6 +7,21 @@ class IndividualsController < ApplicationController
     @individuals = Individual.all.order("last ASC")
   end
 
+  def financial
+    @individuals = Individual.financial
+    render action: :index
+  end
+
+  def notfinancial
+    @individuals = Individual.notfinancial
+    render action: :index
+  end
+
+  def cancelled
+    @individuals = Individual.cancelled
+    render action: :index
+  end
+
   # GET /individuals/1
   # GET /individuals/1.json
   def show

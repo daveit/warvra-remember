@@ -5,6 +5,11 @@ class Individual < ActiveRecord::Base
   belongs_to :region
   has_and_belongs_to_many :icats
   has_many :ireceipts
-  validates :first, presence: true 
-  validates :last, presence: true 
+  validates :first, presence: true
+  validates :last, presence: true
+
+  scope :financial, -> { where(status_id: 1) }
+  scope :notfinancial, -> { where(status_id: 2) }
+  scope :cancelled, -> { where(status_id: 4) }
+
 end

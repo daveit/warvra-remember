@@ -7,6 +7,8 @@
 
     <h1>Listing Individuals</h1>
 
+    <p><%= link_to "All", individuals_path, :class => "btn btn-small btn-success" %> <%= link_to "Financial", financial_individuals_path, :class => "btn btn-small btn-success" %> <%= link_to "Not-Financial", notfinancial_individuals_path, :class => "btn btn-small btn-success" %>  <%= link_to "Cancelled", cancelled_individuals_path, :class => "btn btn-small btn-success" %> <%= link_to 'New Individual', new_individual_path, :class => "btn btn-small btn-primary" %></p>
+
     <div class="media">
       <div class="media-body">
         <table class="table table-hover table-condensed">
@@ -15,8 +17,7 @@
               <th>Name</th>
               <th>Address</th>
               <th>Suburb</th>
-              <th>Phone</th>
-              <th>Fin. to</th>
+              <th>Village</th>
               <th>Status</th>
               <th colspan="2"></th>
             </tr>
@@ -29,16 +30,13 @@
                   <%= link_to (individual.title.name + " " + individual.first + " " + individual.last), individual %>
                 </td>
                 <td>
-                  <%=individual.address1 %>
+                  <%= individual.address1 %>
                 </td>
                 <td>
-                  <%=individual.suburb %>
+                  <%= individual.suburb %>
                 </td>
                 <td>
-                  <%=individual.phone %>
-                </td>
-                <td>
-                  <%=individual.financial_to %>
+                  <%= individual.ivillage.name %>
                 </td>
                 <td>
                   <%=individual.status.name %>
@@ -55,9 +53,9 @@
       </div>
     </div>
 
-    <br>
 
     <%=link_to 'New Individual', new_individual_path, :class=> "btn btn-sm btn-primary" %>
+    <hr>
 
   </div>
 </div>
