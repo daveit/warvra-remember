@@ -21,8 +21,10 @@ gem "font-awesome-rails"
 gem 'momentjs-rails', '>= 2.9.0'
 gem 'bootstrap3-datetimepicker-rails', '~> 4.7.14'
 gem 'kaminari'
-gem 'rails_db'
+# gem 'rails_db'
 gem "pundit"
+gem 'pg'
+gem 'rails_12factor'
 
 group :development do
   gem 'better_errors'
@@ -38,6 +40,4 @@ group :development, :test do
 end
 
 group :production do
-  gem 'pg'
-  gem 'rails_12factor'
 end
