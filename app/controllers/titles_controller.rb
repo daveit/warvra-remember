@@ -40,20 +40,18 @@ class TitlesController < ApplicationController
   # PATCH/PUT /titles/1
   # PATCH/PUT /titles/1.json
   def update
-    respond_to do |format|
-      if @title.update(title_params)
-        format.html { redirect_to @title, notice: 'Title was successfully updated.' }
-        format.json { render :show, status: :ok, location: @title }
-      else
-        format.html { render :edit }
-        format.json { render json: @title.errors, status: :unprocessable_entity }
-      end
+    authorize @title
+    if @title.update(title_params)
+      redirect_to @title, notice: 'Title was successfully updated.'
+    else
+      render :edit
     end
   end
 
   # DELETE /titles/1
   # DELETE /titles/1.json
   def destroy
+    authorize @title
     @title.destroy
     respond_to do |format|
       format.html { redirect_to titles_url, notice: 'Title was successfully destroyed.' }
@@ -62,13 +60,13 @@ class TitlesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_title
-      @title = Title.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_title
+    @title = Title.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def title_params
-      params.require(:title).permit(:name)
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def title_params
+    params.require(:title).permit(:name)
+  end
 end

@@ -3,7 +3,7 @@ source 'https://rubygems.org'
 # Standard Rails gems
 ruby '2.2.3'
 
-gem 'rails', '4.2.4'
+gem 'rails', '4.2.6'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.1.0'
@@ -22,6 +22,7 @@ gem 'momentjs-rails', '>= 2.9.0'
 gem 'bootstrap3-datetimepicker-rails', '~> 4.7.14'
 gem 'kaminari'
 gem 'rails_db'
+gem "pundit"
 
 group :development do
   gem 'better_errors'

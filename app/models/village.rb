@@ -3,13 +3,15 @@ class Village < ActiveRecord::Base
   belongs_to :status
   belongs_to :region
   
-  validates :name, presence: true
-  validates_uniqueness_of :name  
-
   has_and_belongs_to_many :village_categories
 
   has_many :contacts
   has_many :vreceipts
+
+  validates :name, presence: true
+  validates_uniqueness_of :name
+  validates :status_id, :presence => true
+  validates :region_id, :presence => true
 
   # paginates_per 15
 

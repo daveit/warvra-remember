@@ -8,6 +8,11 @@ class Individual < ActiveRecord::Base
   validates :first, presence: true
   validates :last, presence: true
 
+  validates :status_id, :presence => true
+  validates :ivillage_id, :presence => true
+  validates :title_id, :presence => true
+  validates :region_id, :presence => true
+
   scope :financial, -> { where(status_id: 1) }
   scope :notfinancial, -> { where(status_id: 2) }
   scope :cancelled, -> { where(status_id: 4) }

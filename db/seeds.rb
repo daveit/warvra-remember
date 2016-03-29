@@ -39,3 +39,19 @@ user = User.find_or_create_by!(email: "nicolay@westnet.com.au") do |user|
   user.role = 1
   puts "user Denise: " << user.email
 end
+
+user = User.find_or_create_by!(email: "view@example.com") do |user|
+  user.name = "View Only"
+  user.password = "password"
+  user.password_confirmation = "password"
+  user.role = 1
+  puts "user: ViewOnly - " << user.email
+end
+
+user = User.find_or_create_by!(email: "vip@gmail.com") do |user|
+  user.name = "VIP User"
+  user.password = "letmein123"
+  user.password_confirmation = "letmein123"
+  user.role = 1
+  puts "user VIP: " << user.email
+end
