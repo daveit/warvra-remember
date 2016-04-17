@@ -55,3 +55,35 @@ user = User.find_or_create_by!(email: "vip@gmail.com") do |user|
   user.role = 1
   puts "user VIP: " << user.email
 end
+
+user = User.find_or_create_by!(email: "hamish53@bigpond.com") do |user|
+  user.name = "Bob Hamilton"
+  user.password = "LetBHIn+711"
+  user.password_confirmation = "LetBHIn+711"
+  user.role = 2
+  puts "user Bob Hamilton: " << user.email
+end
+
+user = User.find_or_create_by!(email: "gg.vb@bigpond.com") do |user|
+  user.name = "Val Brown"
+  user.password = "LetVBIn+724"
+  user.password_confirmation = "LetVBIn+724"
+  user.role = 2
+  puts "user Val Brown: " << user.email
+end
+
+user = User.find_or_create_by!(email: "talworth40@gmail.com") do |user|
+  user.name = "Colin Edwards"
+  user.password = "LetCEIn+319"
+  user.password_confirmation = "LetCEIn+319"
+  user.role = 1
+  puts "user Colin Edwards: " << user.email
+end
+
+user = User.find_or_create_by!(email: "ianandrae@internode.on.net") do |user|
+  user.name = "Ian Nordeck"
+  user.password = "LetINIn+802"
+  user.password_confirmation = "LetINIn+802"
+  user.role = 1
+  puts "user Ian Nordeck: " << user.email
+end

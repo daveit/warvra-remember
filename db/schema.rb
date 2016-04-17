@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150906115408) do
+ActiveRecord::Schema.define(version: 20160409090103) do
 
   create_table "acc_accounts", force: :cascade do |t|
     t.string   "name"
@@ -145,6 +145,21 @@ ActiveRecord::Schema.define(version: 20150906115408) do
   add_index "individuals", ["status_id"], name: "index_individuals_on_status_id"
   add_index "individuals", ["suburb_id"], name: "index_individuals_on_suburb_id"
   add_index "individuals", ["title_id"], name: "index_individuals_on_title_id"
+
+  create_table "inews", force: :cascade do |t|
+    t.string   "title"
+    t.string   "first"
+    t.string   "last"
+    t.date     "idate"
+    t.string   "description"
+    t.string   "status"
+    t.string   "total"
+    t.string   "subject"
+    t.text     "body"
+    t.string   "fromemail"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
 
   create_table "ireceipts", force: :cascade do |t|
     t.date     "rdate"

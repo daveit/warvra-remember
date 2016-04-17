@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  resources :inews
   resources :acc_trans
   resources :acc_logs
   resources :acc_settings
