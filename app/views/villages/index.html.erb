@@ -5,7 +5,15 @@
 
     <h2>Listing Villages</h2>
 
-    <p><%= link_to "All", villages_path, :class => "btn btn-small btn-success" %> <%= link_to "Financial", financial_villages_path, :class => "btn btn-small btn-success" %> <%= link_to "Not-Financial", notfinancial_villages_path, :class => "btn btn-small btn-success" %> <%= link_to "Prospects", prospect_villages_path, :class => "btn btn-small btn-success" %> <%= link_to "Cancelled", cancelled_villages_path, :class => "btn btn-small btn-success" %> <%= link_to 'New Village', new_village_path, :class => "btn btn-small btn-primary" %></p>
+    <p><%= link_to "All", villages_path, :class => "btn btn-small btn-success" %>
+      <%= link_to "Financial", financial_villages_path, :class => "btn btn-small btn-success" %>
+      <%= link_to "Not-Financial", notfinancial_villages_path, :class => "btn btn-small btn-success" %>
+      <%= link_to "Prospects", prospect_villages_path, :class => "btn btn-small btn-success" %>
+      <%= link_to "Cancelled", cancelled_villages_path, :class => "btn btn-small btn-success" %>
+      <% if current_user.try(:vip?) or current_user.try(:admin?) %>
+          <%= link_to 'New Village', new_village_path, :class => "btn btn-small btn-primary" %>
+      <% end %>
+    </p>
 
     <%= form_tag villages_path, :method => 'get' do %>
         <p>
@@ -16,7 +24,7 @@
 
     <div class="media">
       <div class="media-body">
-        <table class="table table-hover">
+        <table class="table table-hover table-condensed">
           <thead>
           <tr>
             <th>Name</th>
@@ -35,7 +43,7 @@
           <tbody>
           <% @villages.each do |village| %>
               <tr>
-                <td><%= village.name %></td>
+                <td><%= link_to village.name, village %></td>
                 <td><%= village.address %></td>
                 <td><%= village.suburb %></td>
                 <td><%= village.phone %></td>
@@ -43,9 +51,10 @@
                 <td><%= village.financial_to %></td>
                 <td><%= village.residents %></td>
                 <!--<td><%= village.status.name %></td>-->
-                <td><%= link_to 'Show', village, :class => "btn btn-small btn-info" %></td>
-                <td><%= link_to 'Edit', edit_village_path(village), :class => "btn btn-small btn-success" %></td>
-                <td><%= link_to 'Delete', village, method: :delete, data: {confirm: 'Are you sure?'}, :class => "btn btn-small btn-danger" %></td>
+                <% if current_user.try(:vip?) or current_user.try(:admin?) %>
+                    <td><%= link_to 'Edit', edit_village_path(village), :class => "btn btn-small btn-success" %></td>
+                    <td><%= link_to 'Delete', village, method: :delete, data: {confirm: 'Are you sure?'}, :class => "btn btn-small btn-danger" %></td>
+                <% end %>
               </tr>
           <% end %>
           </tbody>
@@ -54,8 +63,8 @@
     </div>
 
     <br>
-
-    <%= link_to 'New Village', new_village_path, :class => "btn btn-small btn-primary" %>
-
+    <% if current_user.try(:vip?) or current_user.try(:admin?) %>
+        <%= link_to 'New Village', new_village_path, :class => "btn btn-small btn-primary" %>
+    <% end %>
   </div>
 </div>

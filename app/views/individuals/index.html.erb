@@ -2,7 +2,7 @@
   <div class="col-xs-12 col-sm-6 col-md-12">
 
     <p id="notice">
-      <%=notice %>
+      <%= notice %>
     </p>
 
     <h1>Listing Individuals</h1>
@@ -13,18 +13,18 @@
       <div class="media-body">
         <table class="table table-hover table-condensed">
           <thead>
-            <tr>
-              <th>Name</th>
-              <th>Address</th>
-              <th>Suburb</th>
-              <th>Village</th>
-              <th>Status</th>
-              <th colspan="2"></th>
-            </tr>
+          <tr>
+            <th>Name</th>
+            <th>Address</th>
+            <th>Suburb</th>
+            <th>Village</th>
+            <th>Status</th>
+            <th colspan="2"></th>
+          </tr>
           </thead>
 
           <tbody>
-            <% @individuals.each do |individual| %>
+          <% @individuals.each do |individual| %>
               <tr>
                 <td>
                   <%= link_to (individual.title.name + " " + individual.first + " " + individual.last), individual %>
@@ -39,22 +39,26 @@
                   <%= individual.ivillage.name %>
                 </td>
                 <td>
-                  <%=individual.status.name %>
+                  <%= individual.status.name %>
                 </td>
-                  <td><%=link_to 'Edit', edit_individual_path(individual), :class=> "btn btn-xs btn-success" %>
-                  </td>
-                <td>
-                  <%=link_to 'X', individual, method: :delete, data: {confirm: 'Are you sure?'}, :class=> "btn btn-xs btn-danger" %>
-                  </td>
+                <% if current_user.try(:vip?) or current_user.try(:admin?) %>
+                    <td><%= link_to 'Edit', edit_individual_path(individual), :class => "btn btn-xs btn-success" %>
+                    </td>
+                    <td>
+                      <%= link_to 'X', individual, method: :delete, data: {confirm: 'Are you sure?'}, :class => "btn btn-xs btn-danger" %>
+                    </td>
+                <% end %>
+
               </tr>
-              <% end %>
+          <% end %>
           </tbody>
         </table>
       </div>
     </div>
 
-
-    <%=link_to 'New Individual', new_individual_path, :class=> "btn btn-sm btn-primary" %>
+    <% if current_user.try(:vip?) or current_user.try(:admin?) %>
+        <%= link_to 'New Individual', new_individual_path, :class => "btn btn-sm btn-primary" %>
+    <% end %>
     <hr>
 
   </div>

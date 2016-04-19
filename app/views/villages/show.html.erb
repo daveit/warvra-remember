@@ -7,17 +7,17 @@
 
     <p>
       <%= @village.address %>
-        <br>
-        <%= @village.address2 %>
-          <br>
-          <%= @village.suburb %>
-            <%= @village.postcode %>
+      <br>
+      <%= @village.address2 %>
+      <br>
+      <%= @village.suburb %>
+      <%= @village.postcode %>
     </p>
 
     <p>
       <%= @village.phone %>
-        <br>
-        <%= @village.email %>
+      <br>
+      <%= @village.email %>
     </p>
 
     <p>
@@ -36,9 +36,9 @@
 
     <p>
       <%= @village.owner %> |
-        <%= @village.operator %> |
-          <%= @village.manager %> |
-            <%= @village.memorial_number %>
+      <%= @village.operator %> |
+      <%= @village.manager %> |
+      <%= @village.memorial_number %>
     </p>
 
     <h3>Contacts</h3>
@@ -47,19 +47,19 @@
       <div class="media-body">
         <table class="table table-hover table-bordered">
           <thead>
-            <tr>
-              <th>Title</th>
-              <th>Name</th>
-              <th>Phone</th>
-              <th>Mobile</th>
-              <th>Email</th>
-              <th>Position</th>
-              <th>Admin?</th>
-            </tr>
+          <tr>
+            <th>Title</th>
+            <th>Name</th>
+            <th>Phone</th>
+            <th>Mobile</th>
+            <th>Email</th>
+            <th>Position</th>
+            <th>Admin?</th>
+          </tr>
           </thead>
 
           <tbody>
-            <% @village.contacts.each do |contact| %>
+          <% @village.contacts.each do |contact| %>
               <tr>
                 <td>
                   <%= contact.title.name %>
@@ -80,9 +80,9 @@
                   <%= contact.position.name %>
                 </td>
                 <td>
-                  <%= check_box "", "", {:checked=> contact.admin, :disabled => true} %></td>
+                  <%= check_box "", "", {:checked => contact.admin, :disabled => true} %></td>
               </tr>
-              <% end %>
+          <% end %>
           </tbody>
         </table>
       </div>
@@ -94,17 +94,17 @@
       <div class="media-body">
         <table class="table table-hover table-bordered">
           <thead>
-            <tr>
-              <th>Date:</th>
-              <th>Amount:</th>
-              <th>Paid By</th>
-              <th>Reference</th>
-              <th>Details</th>
-            </tr>
+          <tr>
+            <th>Date:</th>
+            <th>Amount:</th>
+            <th>Paid By</th>
+            <th>Reference</th>
+            <th>Details</th>
+          </tr>
           </thead>
 
           <tbody>
-            <% @village.vreceipts.each do |rec| %>
+          <% @village.vreceipts.each do |rec| %>
               <tr>
                 <td>
                   <%= rec.rdate %>
@@ -122,52 +122,59 @@
                   <%= rec.details %>
                 </td>
               </tr>
-              <% end %>
+          <% end %>
           </tbody>
         </table>
       </div>
     </div>
     <hr class="style-one">
-    <%= link_to 'Edit', edit_village_path(@village), :class=> "btn btn-small btn-primary" %>
-      <%= link_to 'Back', villages_path, :class=> "btn btn-small btn-primary" %>
+    <% if current_user.try(:vip?) or current_user.try(:admin?) %>
+        <%= link_to 'Edit', edit_village_path(@village), :class => "btn btn-small btn-primary" %>
+        <%= link_to 'Back', villages_path, :class => "btn btn-small btn-primary" %>
+    <% end %>
   </div>
 
   <div class="col-xs-6 col-md-3">
-    <h3>Add a contact:</h3>
-    <%= simple_form_for([@village, @village.contacts.build]) do |f| %>
-      <%= f.error_notification %>
+    <% if current_user.try(:vip?) or current_user.try(:admin?) %>
+        <h3>Add a contact:</h3>
+        <%= simple_form_for([@village, @village.contacts.build]) do |f| %>
+            <%= f.error_notification %>
 
             <div class="form-inputs">
-              <%= f.association :title, input_html: {:style=> 'width: 200px'} %>
-                <%= f.input :name, input_html: {:style=> 'width: 500px'} %>
-                  <%= f.input :phone, input_html: {:style=> 'width: 500px'} %>
-                    <%= f.input :mobile, input_html: {:style=> 'width: 500px'} %>
-                      <%= f.input :email, input_html: {:style=> 'width: 500px'} %>
-                        <%= f.association :position, input_html: {:style=> 'width: 300px'} %>
-                          <%= f.input :admin, as: :boolean, checked_value: true, unchecked_value: false %>
+              <%= f.association :title, input_html: {:style => 'width: 200px'} %>
+              <%= f.input :name, input_html: {:style => 'width: 500px'} %>
+              <%= f.input :phone, input_html: {:style => 'width: 500px'} %>
+              <%= f.input :mobile, input_html: {:style => 'width: 500px'} %>
+              <%= f.input :email, input_html: {:style => 'width: 500px'} %>
+              <%= f.association :position, input_html: {:style => 'width: 300px'} %>
+              <%= f.input :admin, as: :boolean, checked_value: true, unchecked_value: false %>
             </div>
             <div class="form-actions">
-              <%= f.button :submit, :class=> "btn btn-small btn-primary" %>
+              <%= f.button :submit, :class => "btn btn-small btn-primary" %>
             </div>
-            <% end %>
-              <hr class="style-one">
-              <h3>Enter a Receipt:</h3>
-              <%= simple_form_for([@village, @village.vreceipts.build]) do |f| %>
-                <%= f.error_notification %>
+        <% end %>
+    <% end %>
+    <hr class="style-one">
+    <% if current_user.try(:vip?) or current_user.try(:admin?) %>
+        <h3>Enter a Receipt:</h3>
+        <%= simple_form_for([@village, @village.vreceipts.build]) do |f| %>
+            <%= f.error_notification %>
 
-                  <div class="form-inputs">
-                    <%= f.input :rdate, :as=> :date_picker, label: 'Date Entered', input_html: {:style => 'width: 300px', class: 'glyphicon glyphicon-calendar'} %>
-                      <%= f.association :pay_type, label: 'Payment Type', input_html: {:style=> 'width: 200px'} %>
-                        <%= f.input :reference, input_html: {:style=> 'width: 500px'} %>
-                          <%= f.input :recamount, label: 'Amount', input_html: {:style=> 'width: 500px'} %>
-                            <%= f.input :details, input_html: {:style=> 'width: 500px'} %>
-                              <%= f.input :finto, :as=> :date_picker, label: 'Financial To', input_html: {:style => 'width: 300px', class: 'glyphicon glyphicon-calendar'} %>
-                  </div>
-                  <div class="form-actions">
-                    <%= f.submit 'Save Receipt', :class=> "btn btn-small btn-primary" %>
-                  </div>
-                  <% end %>
-                    <br>
+            <div class="form-inputs">
+              <%= f.input :rdate, :as => :date_picker, label: 'Date Entered', input_html: {:style => 'width: 300px', class: 'glyphicon glyphicon-calendar'} %>
+              <%= f.association :pay_type, label: 'Payment Type', input_html: {:style => 'width: 200px'} %>
+              <%= f.input :reference, input_html: {:style => 'width: 500px'} %>
+              <%= f.input :recamount, label: 'Amount', input_html: {:style => 'width: 500px'} %>
+              <%= f.input :details, input_html: {:style => 'width: 500px'} %>
+              <%= f.input :finto, :as => :date_picker, label: 'Financial To', input_html: {:style => 'width: 300px', class: 'glyphicon glyphicon-calendar'} %>
+            </div>
+            <div class="form-actions">
+              <%= f.submit 'Save Receipt', :class => "btn btn-small btn-primary" %>
+            </div>
+        <% end %>
+    <% end %>
+
+    <br>
 
   </div>
 
