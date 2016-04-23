@@ -2,8 +2,8 @@ class Vreceipt < ActiveRecord::Base
   belongs_to :village
   belongs_to :pay_type
   
-  validates_associated :villages
-  validates_associated :pay_types
+  # validates_associated :villages
+  # validates_associated :pay_types
 
   after_save :set_financial_to
 

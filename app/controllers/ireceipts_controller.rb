@@ -24,6 +24,14 @@ class IreceiptsController < ApplicationController
   # POST /ireceipts
   # POST /ireceipts.json
   def create
+    @individual = Individual.find(params[:individual_id])
+    @ireceipt = @individual.ireceipts.create(ireceipt_params)
+    #redirect_to individuals_path(@individual)
+    redirect_to @individual
+  end
+
+=begin
+  def create
     @ireceipt = Ireceipt.new(ireceipt_params)
 
     respond_to do |format|
@@ -36,6 +44,7 @@ class IreceiptsController < ApplicationController
       end
     end
   end
+=end
 
   # PATCH/PUT /ireceipts/1
   # PATCH/PUT /ireceipts/1.json

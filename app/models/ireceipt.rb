@@ -1,4 +1,5 @@
 class Ireceipt < ActiveRecord::Base
+
   belongs_to :individual
   belongs_to :pay_type
 
