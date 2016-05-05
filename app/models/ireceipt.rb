@@ -3,6 +3,10 @@ class Ireceipt < ActiveRecord::Base
   belongs_to :individual
   belongs_to :pay_type
 
+  validates :rdate, :financial_to, presence: true
+  validates :amount, numericality: { greater_than: 0.01 }
+  validates :pay_type_id, :presence => true
+
   after_save :set_financial_to
 
   private
