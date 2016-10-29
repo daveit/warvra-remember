@@ -4,7 +4,7 @@ class IreceiptsController < ApplicationController
   # GET /ireceipts
   # GET /ireceipts.json
   def index
-    @ireceipts = Ireceipt.all
+    @ireceipts = Ireceipt.all.order("rdate DESC")
   end
 
   # GET /ireceipts/1
