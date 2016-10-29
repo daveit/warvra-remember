@@ -51,7 +51,7 @@ class IreceiptsController < ApplicationController
   def update
     respond_to do |format|
       if @ireceipt.update(ireceipt_params)
-        format.html { redirect_to @ireceipt, notice: 'Ireceipt was successfully updated.' }
+        format.html { redirect_to ireceipts_url, notice: 'Receipt was successfully updated.' }
         format.json { render :show, status: :ok, location: @ireceipt }
       else
         format.html { render :edit }
@@ -65,7 +65,7 @@ class IreceiptsController < ApplicationController
   def destroy
     @ireceipt.destroy
     respond_to do |format|
-      format.html { redirect_to ireceipts_url, notice: 'Ireceipt was successfully destroyed.' }
+      format.html { redirect_to ireceipts_url, notice: 'Receipt was successfully deleted.' }
       format.json { head :no_content }
     end
   end

@@ -4,7 +4,7 @@ class VreceiptsController < ApplicationController
   # GET /vreceipts
   # GET /vreceipts.json
   def index
-    @vreceipts = Vreceipt.all
+    @vreceipts = Vreceipt.all.order("rdate DESC")
   end
 
   # GET /vreceipts/1
@@ -50,7 +50,7 @@ class VreceiptsController < ApplicationController
   def update
     respond_to do |format|
       if @vreceipt.update(vreceipt_params)
-        format.html { redirect_to @vreceipt, notice: 'Vreceipt was successfully updated.' }
+        format.html { redirect_to vreceipts_url, notice: 'Receipt was successfully updated.' }
         format.json { render :show, status: :ok, location: @vreceipt }
       else
         format.html { render :edit }
@@ -64,7 +64,7 @@ class VreceiptsController < ApplicationController
   def destroy
     @vreceipt.destroy
     respond_to do |format|
-      format.html { redirect_to vreceipts_url, notice: 'Vreceipt was successfully destroyed.' }
+      format.html { redirect_to vreceipts_url, notice: 'Receipt was successfully deleted.' }
       format.json { head :no_content }
     end
   end

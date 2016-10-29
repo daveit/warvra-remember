@@ -26,13 +26,13 @@
 </p>
 
 <p>
-  <strong>Individual:</strong>
+  <strong>Name:</strong>
   <%= @ireceipt.individual %>
 </p>
 
 <p>
   <strong>Pay type:</strong>
-  <%= @ireceipt.pay_type %>
+  <%= @ireceipt.pay_type.name %>
 </p>
 
 <%= link_to 'Edit', edit_ireceipt_path(@ireceipt) %> |

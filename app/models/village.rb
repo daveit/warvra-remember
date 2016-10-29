@@ -22,15 +22,10 @@ class Village < ActiveRecord::Base
 
   def self.search(search)
     if search
-      where('name LIKE ?', "%#{search}%")
+      where('lower(name) LIKE ?', "%#{search}%")
     else
       all
     end
   end
 
-  def self.import(file)
-    CSV.foreach(file.path, headers: true) do |row|
-      Village.create! row.to_hash
-    end
-  end
 end
