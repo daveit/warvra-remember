@@ -31,7 +31,7 @@
                 <td><%= ireceipt.pay_type.name %></td>
                 <% if current_user.try(:vip?) or current_user.try(:admin?) %>
                   <td><%= link_to 'Edit', edit_ireceipt_path(ireceipt), :class => "btn btn-xs btn-success" %></td>
-                  <td><%= link_to 'Delete', ireceipt, method: :delete, data: {confirm: 'Are you sure?'}, :class => "btn btn-xs btn-danger" %></td>
+                  <td><%= link_to 'x', ireceipt, method: :delete, data: {confirm: 'Are you sure?'}, :class => "btn btn-xs btn-danger" %></td>
                 <% end %>
               </tr>
           <% end %>

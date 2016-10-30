@@ -140,7 +140,6 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" scope="PROVIDED" name="better_errors (v2.1.1, RVM: ruby-2.2.0 [warem]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="binding_of_caller (v0.7.2, RVM: ruby-2.2.0 [warem]) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="bootstrap3-datetimepicker-rails (v4.7.14, RVM: ruby-2.2.0 [warem]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="builder (v3.2.2, RVM: ruby-2.2.0 [warem]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="bundler (v1.10.2, RVM: ruby-2.2.0 [warem]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="coffee-script (v2.4.1, RVM: ruby-2.2.0 [warem]) [gem]" level="application" />

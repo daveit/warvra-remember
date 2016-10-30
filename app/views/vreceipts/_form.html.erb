@@ -2,9 +2,9 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.input :rdate, as: :string, label: 'Receipt Date',:input_html => { :style => 'width: 150px' } %>
+    <%= f.input :rdate, label: 'Receipt Date',:input_html => { :style => 'width: 150px' } %>
     <%= f.input :reference %>
-    <%= f.input :finto, as: :string, label: 'Financial To',:input_html => { :style => 'width: 150px' } %>
+    <%= f.input :finto, label: 'Financial To',:input_html => { :style => 'width: 150px' } %>
     <%= f.input :details %>
     <%= f.association :village %>
     <%= f.association :pay_type %>

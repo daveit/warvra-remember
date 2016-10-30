@@ -99,12 +99,12 @@
             <%= f.error_notification %>
 
             <div class="form-inputs">
-              <%= f.input :rdate, :as => :date_picker, label: 'Date Entered', input_html: {:style => 'width: 300px', class: 'glyphicon glyphicon-calendar'} %>
+              <%= f.input :rdate, label: "Receipt Date" %>
               <%= f.input :amount %>
               <%= f.association :pay_type %>
               <%= f.input :reference %>
               <%= f.input :details %>
-              <%= f.input :financial_to, :as => :date_picker, label: 'Financial To', input_html: {:style => 'width: 300px', class: 'glyphicon glyphicon-calendar'} %>
+              <%= f.input :financial_to, label: 'Financial To' %>
             </div>
 
             <div class="form-actions">

@@ -1,0 +1,12 @@
+I"ð(function() {
+  $(document).ready(function() {
+    return $('.form_datetime').datetimepicker({
+      autoclose: true,
+      todayBtn: true,
+      pickerPosition: "bottom-left",
+      format: 'dd-mm-yyyy hh:ii'
+    });
+  });
+
+}).call(this);
+:ET

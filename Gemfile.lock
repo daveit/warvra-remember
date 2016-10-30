@@ -49,8 +49,6 @@ GEM
     bootstrap-sass (3.3.7)
       autoprefixer-rails (>= 5.2.1)
       sass (>= 3.3.4)
-    bootstrap3-datetimepicker-rails (4.17.42)
-      momentjs-rails (>= 2.8.1)
     bootswatch-rails (3.3.5)
       railties (>= 3.1)
     builder (3.2.2)
@@ -75,8 +73,6 @@ GEM
       warden (~> 1.2.3)
     erubis (2.7.0)
     execjs (2.7.0)
-    font-awesome-rails (4.7.0.0)
-      railties (>= 3.2, < 5.1)
     globalid (0.3.7)
       activesupport (>= 4.1.0)
     i18n (0.7.0)
@@ -100,8 +96,6 @@ GEM
     mime-types-data (3.2016.0521)
     mini_portile2 (2.1.0)
     minitest (5.9.1)
-    momentjs-rails (2.15.1)
-      railties (>= 3.1)
     multi_json (1.12.1)
     nokogiri (1.6.8.1)
       mini_portile2 (~> 2.1.0)
@@ -218,16 +212,13 @@ PLATFORMS
 DEPENDENCIES
   better_errors
   bootstrap-sass
-  bootstrap3-datetimepicker-rails (~> 4.17.42)
   bootswatch-rails
   byebug
   coffee-rails (~> 4.1.0)
   devise
-  font-awesome-rails
   jbuilder (~> 2.0)
   jquery-rails (~> 2.3.0)
   kaminari
-  momentjs-rails (>= 2.9.0)
   pg
   pundit
   quiet_assets

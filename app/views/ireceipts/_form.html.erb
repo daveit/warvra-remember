@@ -2,11 +2,11 @@
     <h3>Individual: <%= (@ireceipt.individual.first + " " + @ireceipt.individual.last) %>
     </h3>
   <div class="form-inputs">
-    <%= f.input :rdate, :as => :string, label: 'Date Entered', input_html: {:style => 'width: 150px'} %>
+    <%= f.input :rdate, label: 'Date Entered', input_html: {:style => 'width: 150px'} %>
     <%= f.input :amount %>
     <%= f.input :reference %>
     <%= f.input :details %>
-    <%= f.input :financial_to, :as => :string, label: 'Financial To', input_html: {:style => 'width: 150px'} %>
+    <%= f.input :financial_to, label: 'Financial To', input_html: {:style => 'width: 150px'} %>
     <%= f.association :pay_type %>
   </div>
 

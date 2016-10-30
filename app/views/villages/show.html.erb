@@ -161,12 +161,12 @@
             <%= f.error_notification %>
 
             <div class="form-inputs">
-              <%= f.input :rdate, :as => :date_picker, label: 'Date Entered', input_html: {:style => 'width: 300px', class: 'glyphicon glyphicon-calendar'} %>
+              <%= f.input :rdate, label: 'Date Entered', input_html: {:style => 'width: 150px' } %>
               <%= f.association :pay_type, label: 'Payment Type', input_html: {:style => 'width: 200px'} %>
               <%= f.input :reference, input_html: {:style => 'width: 500px'} %>
               <%= f.input :recamount, label: 'Amount', input_html: {:style => 'width: 500px'} %>
               <%= f.input :details, input_html: {:style => 'width: 500px'} %>
-              <%= f.input :finto, :as => :date_picker, label: 'Financial To', input_html: {:style => 'width: 300px', class: 'glyphicon glyphicon-calendar'} %>
+              <%= f.input :finto, label: 'Financial To', input_html: {:style => 'width: 150px' } %>
             </div>
             <div class="form-actions">
               <%= f.submit 'Save Receipt', :class => "btn btn-small btn-primary" %>
