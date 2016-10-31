@@ -1,12 +1,11 @@
 <%= simple_form_for(@vreceipt) do |f| %>
   <%= f.error_notification %>
-
-  <div class="form-inputs">
+    <h3>Village: <%= (@vreceipt.village.name) %>
+    </h3>  <div class="form-inputs">
     <%= f.input :rdate, label: 'Receipt Date',:input_html => { :style => 'width: 150px' } %>
     <%= f.input :reference %>
     <%= f.input :finto, label: 'Financial To',:input_html => { :style => 'width: 150px' } %>
     <%= f.input :details %>
-    <%= f.association :village %>
     <%= f.association :pay_type %>
   </div>
 

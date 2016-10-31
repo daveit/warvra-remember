@@ -1,5 +1,9 @@
 class ContactsController < ApplicationController
 
+  def index
+    @contacts = Contact.all
+  end
+
   def create
     @village = Village.find(params[:village_id])
     @contact = @village.contacts.create(contact_params)

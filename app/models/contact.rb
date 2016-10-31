@@ -7,7 +7,6 @@ class Contact < ActiveRecord::Base
   validates :position, :presence => true
   validates :title, :presence => true
   validates :name, presence: true
-  # validates_uniqueness_of :name
 
   validates :title_id, :presence => true
   validates :position_id, :presence => true

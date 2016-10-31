@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   resources :regions
   resources :ivillages
   resources :ireceipts
+  resources :contacts
 
   resources :individuals do
     collection do
