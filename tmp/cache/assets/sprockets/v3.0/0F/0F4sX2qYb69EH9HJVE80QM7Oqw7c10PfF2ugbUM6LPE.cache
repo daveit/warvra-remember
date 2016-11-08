@@ -1,0 +1,10 @@
+I"ê(function() {
+  jQuery(function() {
+    $('#ireceipt_rdate').datepicker;
+    return {
+      dateFormat: 'dd-mm-yy'
+    };
+  });
+
+}).call(this);
+:ET

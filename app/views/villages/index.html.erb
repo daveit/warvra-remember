@@ -19,6 +19,7 @@
         <p>
           <%= text_field_tag :search, params[:search] %>
           <%= submit_tag "Search", :name => nil %>
+          <%= link_to 'x', villages_path, :class => "btn btn-xs btn-success" %>
         </p>
     <% end %>
 

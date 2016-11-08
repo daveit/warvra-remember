@@ -11,4 +11,12 @@ class Contact < ActiveRecord::Base
   validates :title_id, :presence => true
   validates :position_id, :presence => true
 
+  def self.search(search)
+    if search
+      where('lower(name) LIKE ?', "%#{search}%")
+    else
+      all
+    end
+  end
+
 end
