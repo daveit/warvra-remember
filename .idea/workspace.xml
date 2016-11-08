@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b2522e23-5e21-4b47-b443-004222a6719f" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Gemfile" afterPath="$PROJECT_DIR$/Gemfile" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Gemfile.lock" afterPath="$PROJECT_DIR$/Gemfile.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/villages/index.html.erb" afterPath="$PROJECT_DIR$/app/views/villages/index.html.erb" />
-    </list>
+    <list default="true" id="b2522e23-5e21-4b47-b443-004222a6719f" name="Default" comment="" />
     <ignored path="warem.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="$PROJECT_DIR$/components/" />
@@ -910,12 +905,12 @@
       <workItem from="1477717258730" duration="11972000" />
       <workItem from="1477802535269" duration="10930000" />
       <workItem from="1478218175072" duration="36000" />
-      <workItem from="1478617076549" duration="2287000" />
+      <workItem from="1478617076549" duration="2538000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="42359000" />
+    <option name="totallyTimeSpent" value="42610000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="33" y="23" width="1875" height="1014" extended-state="0" />
