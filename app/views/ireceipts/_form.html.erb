@@ -3,7 +3,7 @@
     <h3>Individual: <%= (@ireceipt.individual.first + " " + @ireceipt.individual.last) %></h3>
 
     <div class="form-inputs">
-      <%= f.input :rdate, as: :date, label: 'Receipt date', input_html: {:style => 'width: 150px' } %>
+      <%= f.input :rdate, as: :date, label: 'Receipt date', input_html: {:style => 'width: 150px'} %>
       <%= f.input :amount %>
       <%= f.input :reference %>
       <%= f.input :details %>

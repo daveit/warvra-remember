@@ -6,8 +6,6 @@ SimpleForm.setup do |config|
   # stack. The options given below are used to wrap the
   # whole input.
 
-  Anjlab::Widgets.simple_form as_default: true
-
   config.wrappers :default, class: :input,
     hint_class: :field_with_hint, error_class: :field_with_errors do |b|
     ## Extensions enabled by default

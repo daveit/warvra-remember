@@ -16,5 +16,4 @@
 //= require turbolinks
 //= require bootstrap-sprockets
 //= require moment
-//= require anjlab/datepicker
 // = require_tree .
