@@ -31,7 +31,6 @@
 
     <br>
     <% if current_user.try(:vip?) or current_user.try(:admin?) %>
-
         <%= link_to 'New Position', new_position_path, :class => "btn btn-sm btn-info" %>
     <% end %>
   </div>

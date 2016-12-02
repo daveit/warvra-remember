@@ -17,8 +17,8 @@
           <tr>
             <td><%= title.name %></td>
             <% if current_user.try(:vip?) or current_user.try(:admin?) %>
-                <td><%= link_to 'Edit', edit_title_path(title) %></td>
-                <td><%= link_to 'Destroy', title, method: :delete, data: {confirm: 'Are you sure?'} %></td>
+                <td><%= link_to 'Edit', edit_title_path(title), :class => "btn btn-xs btn-success"  %></td>
+                <td><%= link_to 'x', title, method: :delete, data: {confirm: 'Are you sure?'}, :class => "btn btn-xs btn-danger"  %></td>
             <% end %>
           </tr>
       <% end %>
@@ -28,6 +28,5 @@
 </div>
 
 <% if current_user.try(:vip?) or current_user.try(:admin?) %>
-<%= link_to 'New Title', new_title_path %>
+<%= link_to 'New Title', new_title_path, :class => "btn btn-small btn-info" %>
 <% end %>
-<hr>

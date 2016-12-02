@@ -5,7 +5,7 @@
 
     <h1>Villages for Individuals</h1>
     <% if current_user.try(:vip?) or current_user.try(:admin?) %>
-        <%= link_to 'New Individuals Village', new_ivillage_path, :class => "btn btn-sm btn-primary" %>
+        <%= link_to 'New Individuals Village', new_ivillage_path, :class => "btn btn-sm btn-info" %>
     <% end %>
 
     <div class="media">
@@ -25,14 +25,14 @@
           <tbody>
           <% @ivillages.each do |ivillage| %>
               <tr>
-                <td><%= link_to ivillage.name, ivillage %></td>
+                <td><%= link_to ivillage.name, edit_ivillage_path(ivillage) %></td>
                 <td><%= ivillage.address1 %></td>
                 <td><%= ivillage.suburb %></td>
                 <td><%= ivillage.postcode %></td>
                 <td><%= ivillage.phone1 %></td>
                 <% if current_user.try(:vip?) or current_user.try(:admin?) %>
-                    <td><%= link_to 'Edit', edit_ivillage_path(ivillage), :class => "btn btn-small btn-success" %></td>
-                    <td><%= link_to 'Destroy', ivillage, method: :delete, data: {confirm: 'Are you sure?'}, :class => "btn btn-small btn-danger" %></td>
+                    <td><%= link_to 'Edit', edit_ivillage_path(ivillage), :class => "btn btn-xs btn-success" %></td>
+                    <td><%= link_to 'x', ivillage, method: :delete, data: {confirm: 'Are you sure?'}, :class => "btn btn-xs btn-danger" %></td>
                 <% end %>
               </tr>
           <% end %>
@@ -41,7 +41,7 @@
       </div>
     </div>
     <% if current_user.try(:vip?) or current_user.try(:admin?) %>
-        <%= link_to 'New Individuals Village', new_ivillage_path, :class => "btn btn-sm btn-primary" %>
+        <%= link_to 'New Individuals Village', new_ivillage_path, :class => "btn btn-sm btn-info" %>
     <% end %>
     <hr>
   </div>
