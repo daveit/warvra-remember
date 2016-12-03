@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161202141305) do
+ActiveRecord::Schema.define(version: 20161203010321) do
 
   create_table "acc_accounts", force: :cascade do |t|
     t.string   "name"
@@ -194,6 +194,20 @@ ActiveRecord::Schema.define(version: 20161202141305) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  create_table "miscellaneous_contacts", force: :cascade do |t|
+    t.string   "name"
+    t.text     "address"
+    t.string   "workphone"
+    t.string   "mobilephone"
+    t.string   "emailaddress"
+    t.integer  "ContactsCategory_id"
+    t.text     "notes"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+  end
+
+  add_index "miscellaneous_contacts", ["ContactsCategory_id"], name: "index_miscellaneous_contacts_on_ContactsCategory_id"
 
   create_table "notices", force: :cascade do |t|
     t.string   "title"

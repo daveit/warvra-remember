@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  resources :miscellaneous_contacts
   resources :contacts_categories
   resources :inews
   resources :acc_trans
