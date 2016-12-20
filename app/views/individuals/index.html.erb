@@ -11,7 +11,6 @@
       <%= link_to "Financial", financial_individuals_path, :class => "btn btn-small btn-success" %>
       <%= link_to "Not-Financial", notfinancial_individuals_path, :class => "btn btn-small btn-success" %>
       <%= link_to "Cancelled", cancelled_individuals_path, :class => "btn btn-small btn-success" %>
-      <%= link_to "Archived", cancelled_individuals_path, :class => "btn btn-small btn-success" %>
       <%= link_to 'New Individual', new_individual_path, :class => "btn btn-small btn-primary" %></p>
 
     <div class="media">
@@ -51,9 +50,6 @@
                     </td>
                 <% end %>
                 <% if current_user.try(:admin?) %>
-                    <td>
-                    <td><%= link_to 'Archive', edit_individual_path(individual), :class => "btn btn-xs btn-success" %>
-                    </td>
                     <td>
                       <%= link_to 'X', individual, method: :delete, data: {confirm: 'Are you sure?'}, :class => "btn btn-xs btn-danger" %>
                     </td>
