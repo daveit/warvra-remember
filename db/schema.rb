@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161203010321) do
+ActiveRecord::Schema.define(version: 20200229030831) do
 
   create_table "acc_accounts", force: :cascade do |t|
     t.string   "name"
@@ -88,6 +88,20 @@ ActiveRecord::Schema.define(version: 20161203010321) do
     t.integer  "LastInvNum"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "associates", force: :cascade do |t|
+    t.string   "surname"
+    t.string   "first"
+    t.string   "title"
+    t.string   "email"
+    t.string   "payer_name"
+    t.string   "payer_title"
+    t.string   "payer_email"
+    t.date     "financial_to"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.boolean  "management"
   end
 
   create_table "contacts", force: :cascade do |t|

@@ -14,6 +14,13 @@ Rails.application.routes.draw do
   resources :ivillages
   resources :ireceipts
   resources :contacts
+=begin
+  resources :associates
+=end
+
+  resources :associates do
+    collection { post :import }
+  end
 
   resources :individuals do
     collection do

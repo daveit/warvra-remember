@@ -41,6 +41,7 @@
       <strong>Status:</strong>
       <%= @individual.status.name %>
     </p>
+
     <% if current_user.try(:vip?) or current_user.try(:admin?) %>
         <%= link_to 'Edit', edit_individual_path(@individual), :class => "btn btn-small btn-primary" %>
     <% end %>

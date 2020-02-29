@@ -1,0 +1,49 @@
+<div class="row">
+  <div class="col-xs-12 col-sm-6 col-md-8">
+    <h2>Associate Details</h2>
+    <p id="notice"><%= notice %></p>
+
+    <p>
+      <strong>Surname:</strong>
+      <%= @associate.surname %>
+    </p>
+
+    <p>
+      <strong>First:</strong>
+      <%= @associate.first %>
+    </p>
+    <p>
+      <strong>Title:</strong>
+      <%= @associate.title %>
+    </p>
+
+    <p>
+      <strong>Email Address:</strong>
+      <%= @associate.email %>
+    </p>
+    <p>
+      <strong>Payer Name:</strong>
+      <%= @associate.payer_name %>
+    </p>
+
+    <p>
+      <strong>Payer Title:</strong>
+      <%= @associate.payer_title %>
+    </p>
+
+    <p>
+      <strong>Payer email address:</strong>
+      <%= @associate.payer_email %>
+    </p>
+    <p>
+      <strong>Management:</strong>
+      <%= @associate.management %>
+    </p>
+
+    <% if current_user.try(:vip?) or current_user.try(:admin?) %>
+        <%= link_to 'Edit', edit_associate_path(@associate), :class => "btn btn-small btn-success" %>
+    <% end %>
+    <%= link_to 'Back', associates_path, :class => "btn btn-small btn-info" %>
+
+  </div>
+</div>

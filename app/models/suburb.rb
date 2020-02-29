@@ -18,4 +18,5 @@ class Suburb < ActiveRecord::Base
 	    Suburb.create! row.to_hash
 	  end
 	end
+
 end
