@@ -15,7 +15,8 @@ gem 'jbuilder', '~> 2.0'
 
 gem 'bootstrap-sass'
 gem 'devise'
-gem 'simple_form'
+#gem 'simple_form'
+gem "simple_form", ">= 3.5.1"
 gem 'unicorn'
 gem 'unicorn-rails'
 gem 'bootswatch-rails'
@@ -29,6 +30,7 @@ gem "puma"
 #gem 'sqlite3'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3', '~> 1.3.6'
+#gem "rack", ">= 2.1.4"
 
 group :development do
   gem 'better_errors'
