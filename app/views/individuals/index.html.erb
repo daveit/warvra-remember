@@ -13,6 +13,15 @@
       <%= link_to "Cancelled", cancelled_individuals_path, :class => "btn btn-small btn-success" %>
       <%= link_to 'New Individual', new_individual_path, :class => "btn btn-small btn-primary" %></p>
 
+      <%= form_tag individuals_path, :method => 'get' do %>
+        <p>
+          <%= text_field_tag :search, params[:search] %>
+          <%= submit_tag "First or Last name Search", :name => nil %>
+          <%= link_to 'x', individuals_path, :class => "btn btn-xs btn-success" %>
+          Note: single words only!
+        </p>
+      <% end %>
+
     <div class="media">
       <div class="media-body">
         <table class="table table-hover table-condensed">

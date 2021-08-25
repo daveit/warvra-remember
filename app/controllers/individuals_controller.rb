@@ -4,7 +4,7 @@ class IndividualsController < ApplicationController
   # GET /individuals
   # GET /individuals.json
   def index
-    @individuals = Individual.all.order("last ASC")
+    @individuals = Individual.search(params[:search]).order("last ASC")
   end
 
   def financial

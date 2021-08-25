@@ -46,9 +46,8 @@
         <%= link_to 'Edit', edit_individual_path(@individual), :class => "btn btn-small btn-primary" %>
     <% end %>
     <%= link_to 'Back', individuals_path, :class => "btn btn-small btn-primary" %>
-
-
     <hr class="style-one">
+
     <% if current_user.try(:vip?) or current_user.try(:admin?) %>
         <h3>Receipt History:</h3>
         <div class="media">
@@ -92,6 +91,7 @@
     <% end %>
 
   </div>
+
   <div class="col-xs-6 col-md-4">
     <% if current_user.try(:vip?) or current_user.try(:admin?) %>
 

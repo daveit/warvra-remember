@@ -48,7 +48,7 @@ class AssociatesController < ApplicationController
     @associate = Associate.find(params[:id])
   end
   def associate_params
-    params.require(:associate).permit(:surname, :first, :title, :email, :payer_name, :payer_email, :payer_title, :management )
+    params.require(:associate).permit(:surname, :first, :title, :email, :payer_name, :payer_email, :payer_title, :management, :financialto, :phonemobile, :phonework, :phonehome, :payphonemobile, :payphonework, :payphonehome )
   end
 
 end

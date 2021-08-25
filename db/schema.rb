@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200229030831) do
+ActiveRecord::Schema.define(version: 20200307054111) do
 
   create_table "acc_accounts", force: :cascade do |t|
     t.string   "name"
@@ -90,6 +90,20 @@ ActiveRecord::Schema.define(version: 20200229030831) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "associate_payments", force: :cascade do |t|
+    t.date     "datepaid"
+    t.decimal  "amount"
+    t.string   "reference"
+    t.date     "financialto"
+    t.integer  "associate_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.string   "details"
+    t.integer  "pay_type_id"
+  end
+
+  add_index "associate_payments", ["associate_id"], name: "index_associate_payments_on_associate_id"
+
   create_table "associates", force: :cascade do |t|
     t.string   "surname"
     t.string   "first"
@@ -99,9 +113,16 @@ ActiveRecord::Schema.define(version: 20200229030831) do
     t.string   "payer_title"
     t.string   "payer_email"
     t.date     "financial_to"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
     t.boolean  "management"
+    t.date     "financialto"
+    t.string   "phonemobile"
+    t.string   "phonework"
+    t.string   "phonehome"
+    t.string   "payphonemobile"
+    t.string   "payphonework"
+    t.string   "payphonehome"
   end
 
   create_table "contacts", force: :cascade do |t|

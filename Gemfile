@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 # Standard Rails gems
-ruby '2.4.0'
+ruby '2.6.3'
 
 gem 'rails', '4.2.8'
 gem 'sass-rails', '~> 5.0'
@@ -9,7 +9,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.1.0'
 gem 'jquery-rails', "~> 2.3.0"
 gem 'momentjs-rails', '>= 2.9.0'
-# gem 'bootstrap3-datetimepicker-rails', '~> 4.14.30'
+gem 'bootstrap3-datetimepicker-rails', '~> 4.14.30'
 gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 
@@ -23,9 +23,12 @@ gem 'bootswatch-rails'
 gem 'kaminari'
 gem 'rails_db'
 gem "pundit"
-gem 'pg'
+#gem 'pg'
 gem 'rails_12factor'
 gem "puma"
+#gem 'sqlite3'
+# Use sqlite3 as the database for Active Record
+gem 'sqlite3', '~> 1.3.6'
 
 group :development do
   gem 'better_errors'
@@ -34,8 +37,8 @@ group :development do
 end
 
 group :development, :test do
-  gem 'sqlite3'
+  #gem 'sqlite3'
   gem 'byebug'
   gem 'web-console', '~> 2.0'
-  gem 'spring'
+  #gem 'spring'
 end

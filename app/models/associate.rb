@@ -5,6 +5,8 @@ class Associate < ActiveRecord::Base
   validates :email, presence: true
 =end
 
+  has_many :associate_payments
+
   def self.import(file)
     CSV.foreach(file.path, headers: true) do |row|
       Associate.create! row.to_hash

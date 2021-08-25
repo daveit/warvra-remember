@@ -19,4 +19,12 @@ class Individual < ActiveRecord::Base
   scope :notfinancial, -> { where(status_id: 2) }
   scope :cancelled, -> { where(status_id: 4) }
 
+  def self.search(search)
+    if search
+      where('lower(last) LIKE ? OR lower(first) LIKE ?', "%#{search}%", "%#{search}%")
+    else
+      all
+    end
+  end
+
 end
